@@ -2,22 +2,17 @@ require 'sinatra'
 require 'shotgun'
 
 get '/' do
-  "hello!"
+  'hello world!'
 end
 
-get '/secret' do
-  "this is a secret message!"
+get '/random-cat' do
+  @name = ["Amigo", "Oscar", "Viking", "Kitty"].sample
+  erb(:index)
 end
 
-get '/thegoodplace' do
-  "this is the good place"
-end
-
-get '/theupsidedown' do
-  "this is the upside down"
-end
-
-get '/cat' do
+get '/named-cat' do
+  p params
+  @name = params[:name]
   erb(:index)
 end
 
